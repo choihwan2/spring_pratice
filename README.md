@@ -200,15 +200,9 @@ public class EmpVO{
 	<aop:aspectj-autoproxy/> <!--Annotaion으로 연결만 잘되어있다면 한방에 해결.. -->
 
 
-
 </beans>
 
 ```
-
-*** :** **모든 
- (..) : 모든 매개변수**
-
-**.. :** **하위패키지 포함** 
 
 ****
 
