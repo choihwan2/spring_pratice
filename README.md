@@ -1,16 +1,4 @@
----
-title: Spring 정리 -01
-date: 2020-01-31 17:24:00
-tags:
- - Spring
- - java
----
-
-## 시작하기에 앞서
-
-수업이 좀 진행되었지만 Spring 을 다시 정리하고자 글을 남긴다. 혼자 보기 용으로 쓴 글이라 매우 난잡..
-
-# spring_test
+# Spring
 
 스프링 파일 정리
 
@@ -134,6 +122,8 @@ public class EmpVO{
 </beans>
 
 ```
+
+
 
 ### 참고
 
