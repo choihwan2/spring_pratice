@@ -39,12 +39,14 @@ Spring Bean
 
   평소에 객체를 만드는 방식으로 만드는 것이 아니라. 만들고자 하는 객체를 스프링에 전달해주면 그걸 스프링이 만들어줌. = `new`가 사라지고 스프링 대신 생성 객체 전달받는다. 
 
+![SpringIOC](images/SpringIOC.png)
+
 - Dependency Injection (의존성 주입)
 
   1. 생성자 DI
   2. setter DI
 
-## 설정
+## 환경 설정
 
 pom.xml 안의 
 
@@ -76,7 +78,15 @@ java 버전 1.8 하고 스프링 버전을 4.3.18 로 바꾸고 Properties에서
 2.  스프링 공장 생성 객체만 전달.
 3.  스프링 규칙대로 강제적
 
-## Repository
+
+
+
+
+## Annotaion
+
+![Spring_annotaion](images/Spring_annotaion.png)
+
+
 
 ```java
 @Repository("dao")
@@ -87,13 +97,13 @@ public class EmpDAO{
     }
 }
 
-@Repository	//"empDAO" 라는 ㅣㅇ름으로 객체가 생성됨.
+@Repository	//"empDAO" 라는 이름으로 객체가 생성됨.
 public class EmpDAO{
     @Autowired 	//setVO라는 함수를 대체함
     EmpVO vo;
 }
 
-@Repository("vo")
+@Component("vo")
 public class EmpVO{
     String name;
     double salary;
@@ -122,6 +132,85 @@ public class EmpVO{
 </beans>
 
 ```
+
+
+
+## AOP(ASPECT ORIENTED PROGRAMMING)
+
+- aspect : 모든 스프링 클래스 공통 구현 사항들
+- 공통관심코드=횡단관심코드=핵심관심코드 구현 공통 필요 반복 구현 사항들
+
+![Proxy](images/Proxy.png)
+
+![Spring_aop](images/Spring_aop.png)
+
+### 사용 하는 방법
+
+1. 스프링 프로젝트 기본 jar 라이브러리 파일들 다운로드
+2. aop 관련 라이브러리 추가 [다운로드](https://mvnrepository.com/) 
+3. aspect 클래스 정의 (공통관심)
+4. target 클래스 정의 (핵심관심)
+5. pointcut 문법 (공통(메소드:a) 
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="member" class="aop1.Member" />
+	<bean id="board" class="aop1.Board" />
+	<bean id="common" class="aop1.Common" />
+	
+	<aop:config>
+		<aop:pointcut expression="execution (public * aop1.*.*(..))" id="pc"/>
+		<!-- modifier 리턴타입 패키지명.클래스명.메소드(매개변수개수) 
+		<aop:pointcut expression="execution (public *[리턴타입] aop1[패키지명].*[클래스].*[메소드](..)[매개변수])" id="pc"/>
+		* : 모든
+		(..) : 모든 매개변수
+		.. : 하위패키지 포함
+		-->
+		<aop:aspect id="aspect1" ref="common">
+<!-- 			<aop:before method="a" pointcut-ref="pc"/>
+			<aop:after method="b" pointcut-ref="pc"/> -->
+			<aop:around method="c" pointcut-ref="pc"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
+
+```
+
+
+
+- Annotaion 을 활용한 AOP
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<context:component-scan base-package="annotaion.aopexam"> </context:component-scan>
+	<aop:aspectj-autoproxy/> <!--Annotaion으로 연결만 잘되어있다면 한방에 해결.. -->
+
+
+
+</beans>
+
+```
+
+*** :** **모든 
+ (..) : 모든 매개변수**
+
+**.. :** **하위패키지 포함** 
+
+****
 
 
 
