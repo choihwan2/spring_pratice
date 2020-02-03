@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<context:component-scan
+		base-package="service.spring2"></context:component-scan>
+		
+	<bean id="vogkgk" class="service.spring2.ProductVO">
+		<property name="code" value="100" />
+		<property name="name" value="멀티컴퓨터" />
+		<property name="price" value="1000000" />
+	</bean>
+	
+	<bean id="vo2" class="service.spring2.ProductVO">
+		<property name="code" value="100" />
+		<property name="name" value="바보컴퓨터" />
+		<property name="price" value="100000" />
+	</bean>
+
+	<!-- <bean id="dao" class="service.spring2.ProductDAO">
+		<property name="vo" ref="vo"></property>
+	</bean>
+
+	<bean id="service" class="service.spring2.ProductService12">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean id="service2" class="service.spring2.ProductService05">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean id="service3" class="service.spring2.ProductServiceNo">
+		<property name="dao" ref="dao"></property>
+	</bean> -->
+</beans>

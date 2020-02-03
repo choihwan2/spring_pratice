@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="testVO" class="practice.spring.TestVO">
+		<property name="member1" value="test1"></property>
+		<property name="member2" value="test2"></property>
+	</bean>
+
+<!-- 	<bean id="testDAO" class="practice.spring.TestDAO">
+		<property name="vo" ref="testVO"></property>
+	</bean>
+
+	<bean id="serviceTest" class="practice.spring.TestServiceImpl">
+		<property name="dao" ref="testDAO"></property>
+	</bean> -->
+	
+	<context:component-scan base-package="practice.spring"></context:component-scan>
+	
+</beans>

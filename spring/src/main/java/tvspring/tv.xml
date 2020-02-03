@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="tv" class="tvspring.OtherTV"/> <!--tvspring.OtherTv의 이름의 클래스에 tv라는 걸로 만들어줘  xml 파일 수정만으로 -->
+<bean id="tv2" class="tvspring.MultiTV"/> <!--tvspring.OtherTv의 이름의 클래스에 tv라는 걸로 만들어줘  xml 파일 수정만으로 -->
+
+</beans>
