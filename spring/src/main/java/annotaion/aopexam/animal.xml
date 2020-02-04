@@ -7,10 +7,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-<!-- 	<bean id="cat" class="annotaion.aopexam.Cat" />
-	<bean id="dog" class="annotaion.aopexam.Dog" />
-	<bean id="rabbit" class="annotaion.aopexam.Rabbit" />
-	<bean id="animalAspect" class="annotaion.aopexam.AnimalAspect" /> -->
 	<context:component-scan base-package="annotaion.aopexam"></context:component-scan>
 	<aop:aspectj-autoproxy/>
 
