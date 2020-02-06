@@ -14,7 +14,6 @@ public class BoardController implements Controller {
 		
 		ModelAndView mv = new ModelAndView();
 		BoardDAO dao = new BoardDAO();
-		
 		//servlet ---> jsp 데이터 전달 = 공유 == Model
 		mv.addObject("board",dao.getList()); // request.setAttribute()
 		mv.setViewName("board"); //view 세팅
