@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class EmpMain {
 
 	public static void main(String[] args) throws Exception {
-		// 1.
+		// 1. 설정 파일들 읽기 위한 객체
 		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 
 		// 2. SqlSessionFactory = 연결 설정 파일을 읽어라

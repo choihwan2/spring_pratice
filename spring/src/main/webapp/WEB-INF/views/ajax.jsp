@@ -45,7 +45,6 @@
 			type : "get" ,
 			dataType : 'json' ,
 			success : function( serverdata ){
-				//{"status" : true, "time" : "2020년 2월 ..."}
 				$("#boarddiv").append(serverdata.seq + " - " + serverdata.title + " - " + serverdata.writer + " - " + serverdata.contents + " - " + serverdata.time + " - " + serverdata.viewcount + "<br>");
 				$("#boarddiv").css("color", "red");
 				$("#boarddiv").css("border","2px solid green");

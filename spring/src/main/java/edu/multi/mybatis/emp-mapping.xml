@@ -61,11 +61,15 @@
 	
 	<!-- 한페이지에 열명씩 보여주는 걸 만들어보자! -->
 	<select id="pagingemp" resultType="emp" parameterType="int[]">
-	select first_name, to_char(hire_date, 'yy-mm-dd') hire_date
-	from(select rownum r, first_name, hire_date
+	select employee_id, last_name, first_name, to_char(hire_date, 'yy-mm-dd') hire_date
+	from(select rownum r, last_name, first_name, hire_date, employee_id
 		from (select * from employees order by hire_date desc)
 		)
 	where r between #{array[0]} and #{array[1]}
+	</select>
+	
+	<select id="cntemp" resultType="int">
+		select count(*) from employees
 	</select>
 </mapper>
 

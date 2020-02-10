@@ -14,7 +14,9 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 	<!-- @Componet @Service @Repository @Autowired -->
-	<context:component-scan base-package="edu.multi.mvc" />
+	<!-- <context:component-scan base-package="edu.multi.mvc" /> -->
+	<context:component-scan base-package="edu.multi.mybatis" />
+	<context:component-scan base-package="edu.multi.member" />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->

@@ -1,4 +1,4 @@
-package mybatis;
+package edu.multi.mybatis;
 
 //브라우저 내부 여러 서블릿/jsp 객체 공유 :session
 //mybatis sqlsession => 다른 의미  jdbc 의 Connection같이 db에 연결하는 것.
@@ -6,14 +6,17 @@ package mybatis;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class EmpDAO {
 
+	@Autowired
+	@Qualifier("sqlSession")
 	SqlSession session;
 
-	public void setSession(SqlSession session) {
-		this.session = session;
-	}
 
 	// test 1. 여러개의 레코드 리턴 조회
 	public List<EmpVO> getAllEmp() {
@@ -73,5 +76,11 @@ public class EmpDAO {
 	public List<EmpVO> pagingEmp(int[] param) {
 		List<EmpVO> list = session.selectList("pagingemp", param);
 		return list;
+	}
+	
+	// employees의 개수를 받아오는 함수
+	public int getCountEmp() {
+		int count = session.selectOne("cntemp");
+		return count;
 	}
 }
