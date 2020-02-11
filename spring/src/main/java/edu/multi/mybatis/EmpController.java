@@ -13,7 +13,7 @@ import edu.multi.mybatis.EmpDAO;
 @Controller
 public class EmpController {
 
-//	@Autowired
+	@Autowired
 	EmpDAO dao;
 
 	@RequestMapping("/mybatis/emplist")

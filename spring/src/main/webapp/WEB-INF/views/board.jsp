@@ -23,8 +23,7 @@ td {
 </style>
 </head>
 <body>
-	<h1>컨트롤러 에서 전달 받은 값</h1>
-	<h3>게시판</h3>
+	<h1>게시판</h1>
 	<%-- 	<%
 	ArrayList<BoardVO> list = (ArrayList<BoardVO>) request.getAttribute("board");
 	
@@ -52,7 +51,7 @@ td {
 				<td><form action="http://localhost:8080/mvc/boarddelete"
 						method="post">
 						<input type="hidden" name="seq" value=${item.seq }> <input
-							type="text" name="password" placeholder="비밀번호" maxlength="6"
+							type="text" name="password" required="required" placeholder="비밀번호" maxlength="6"
 							style="width: 80px;"> <input type="submit" value="삭제">
 					</form></td>
 			</tr>

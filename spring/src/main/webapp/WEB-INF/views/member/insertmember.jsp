@@ -15,5 +15,6 @@ PW : <input type="password" name="password"><br>
 전화번호: <input type="text" name="phone"> <br>
 <input type="submit" value="가입">
 </form>
+<h3><a href="/mvc/member/login">돌아가기</a></h3>
 </body>
 </html>

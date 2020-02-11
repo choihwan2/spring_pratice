@@ -5,12 +5,8 @@
 	<insert id="newmember" parameterType="member">
 		insert into member values (#{userid}, #{password}, #{name}, #{phone})
 	</insert>
+	
+	<select id="getmember" resultType="member" parameterType="member">
+		select * from member where userid= #{userid} and password= #{password}
+	</select>
 </mapper>
-
-
-
-
-
-
-
-

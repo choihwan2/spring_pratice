@@ -17,4 +17,12 @@ public class MemberDAO {
 		int i = session2.insert("newmember", vo);
 		return i;
 	}
+	
+	public MemberVO selectMemeber(String userid, String password) {
+		MemberVO vo = new MemberVO();
+		vo.setUserid(userid);
+		vo.setPassword(password);
+		vo = session2.selectOne("getmember", vo);
+		return vo;
+	}
 }
